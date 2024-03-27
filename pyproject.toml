@@ -1,5 +1,5 @@
 [project]
-name = "Fakestore REST API "
+name = "fakestore-backend"
 version = "1.0.0"
 description = "A Fakestore REST API built with Django and Django REST Framework."
 authors = [{ name = "Eduardo da Silva", email = "eduardo.silva@gmail.com" }]
