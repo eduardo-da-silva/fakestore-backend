@@ -1,8 +1,8 @@
 [project]
-name = ""
-version = ""
-description = ""
-authors = [{ name = "Marco André Mendes", email = "marcoandre@gmail.com" }]
+name = "Fakestore REST API "
+version = "1.0.0"
+description = "A Fakestore REST API built with Django and Django REST Framework."
+authors = [{ name = "Eduardo da Silva", email = "eduardo.silva@gmail.com" }]
 dependencies = [
     "django>=4.1.4",
     "djangorestframework>=3.14.0",
