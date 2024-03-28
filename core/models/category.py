@@ -7,6 +7,7 @@ class Category(models.Model):
         ordering = ["name"]
 
     name = models.CharField(max_length=255)
+    icon = models.CharField(max_length=255, blank=True)
     parent = models.ForeignKey("self", on_delete=models.PROTECT, null=True, blank=True)
 
     def __str__(self) -> str:
