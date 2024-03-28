@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer, SlugRelatedField
+from rest_framework.serializers import ModelSerializer, SlugRelatedField, CharField
 
 from uploader.models import Image
 from uploader.serializers import ImageSerializer
@@ -22,6 +22,7 @@ class ProductSerializer(ModelSerializer):
 
 
 class ProductDetailSerializer(ModelSerializer):
+    category = CharField(source="category.name")
     image = ImageSerializer(required=False)
 
     class Meta:
