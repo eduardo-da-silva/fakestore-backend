@@ -25,7 +25,7 @@ drf-spectacular==0.27.1
 filelock==3.13.1
 gunicorn==21.2.0
 identify==2.5.32
-idna==3.4
+idna==3.7
 inflection==0.5.1
 isort==5.13.2
 jsonschema==4.20.0
