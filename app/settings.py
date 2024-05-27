@@ -1,6 +1,9 @@
 import dj_database_url
 import os
 
+from firebase_admin import initialize_app
+from firebase_admin.credentials import credentials
+
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -31,9 +34,11 @@ INSTALLED_APPS = [
     "corsheaders",
     "django_extensions",
     "django_filters",
+    # "passage_auth",
     "drf_spectacular",
     "rest_framework",
     "rest_framework_simplejwt",
+    "fcm_django",
     "uploader",
     "core",
 ]
@@ -163,6 +168,27 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": "REST API to handle FakeStore project.",
     "VERSION": "1.0.0",
 }
+
+# AUTH_USER_MODEL = "passage_auth.PassageUser"
+# PASSAGE_APP_ID = "9o2FumJTyoxmXOtHzjTdkOo9"
+# PASSAGE_API_KEY = "wnlJMxapVm.Xx78ff1J8fL0FzslM7zptrA3fMNDhprYYb4g1TikvnEgez18kY9OC5oeYbRFF2b5"
+# PASSAGE_AUTH_STRATEGY = 2
+
+
+# FCM_DJANGO_SETTINGS = {
+# an instance of firebase_admin.App to be used as default for all fcm-django requests
+# default: None (the default Firebase app)
+# "DEFAULT_FIREBASE_APP": None,
+# default: _('FCM Django')
+# "APP_VERBOSE_NAME": "FCM Django",
+# true if you want to have only one active device per registered user at a time
+# default: False
+# "ONE_DEVICE_PER_USER": True,
+# devices to which notifications cannot be sent,
+# are deleted upon receiving error response from FCM
+# default: False
+# "DELETE_INACTIVE_DEVICES": True,
+# }
 
 
 print(f"MODE: {MODE} \nMEDIA_URL: {MEDIA_URL} \nDATABASE: {DATABASES}")
