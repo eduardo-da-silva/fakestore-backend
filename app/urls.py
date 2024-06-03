@@ -14,7 +14,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from fcm_django.api.rest_framework import FCMDeviceAuthorizedViewSet
 
 
-from core.views import UserViewSet, CategoryViewSet, ProductViewSet
+from core.views import UserViewSet, CategoryViewSet, ProductViewSet, AuthTokenView
 from uploader.router import router as uploader_router
 
 router = DefaultRouter()
@@ -39,9 +39,10 @@ urlpatterns = [
         name="redoc",
     ),
     # Simple JWT
-    path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
-    path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     # API
+    path("api/auth/", AuthTokenView.as_view(), name="auth_token"),
     path("api/", include(router.urls)),
     path("api/media/", include(uploader_router.urls)),
     # path("api/client/", include("passage_auth.urls")),

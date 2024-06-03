@@ -1,3 +1,3 @@
 from .category import CategoryViewSet
 from .product import ProductViewSet
-from .user import UserViewSet
+from .user import UserViewSet, AuthTokenView
