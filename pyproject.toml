@@ -25,12 +25,14 @@ dependencies = [
     "dj-database-url>=2.1.0",
     "mysqlclient>=2.2.4",
     "fcm-django>=2.1.0",
-    "drf-passage-identity>=0.0.3",
+    "firebase-admin>=6.5.0",
+    "passage-identity>=2.5.0",
 ]
 requires-python = ">=3.10"
 license = { text = "MIT" }
 
 [tool.pdm]
+distribution = false
 
 [tool.pdm.dev-dependencies]
 format = ["isort>=5.11.3", "black>=22.12.0"]

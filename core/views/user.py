@@ -1,12 +1,27 @@
-from rest_framework.viewsets import ModelViewSet
+from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework.viewsets import ModelViewSet
 
+from core.authentication import TokenAuthentication
 from core.models import User
 from core.serializers import UserSerializer
 
 from firebase_admin.messaging import Message
 from fcm_django.models import FCMDevice
+
+
+class AuthTokenView(APIView):
+    authentication_classes = [TokenAuthentication]
+
+    @staticmethod
+    def post(request):
+        user = request.user
+        passage_user_id = user.passage_id
+        return Response(
+            {"authStatus": "success", "id": user.id, "passage_id": user.passage_id}, status=status.HTTP_200_OK
+        )
 
 
 class UserViewSet(ModelViewSet):

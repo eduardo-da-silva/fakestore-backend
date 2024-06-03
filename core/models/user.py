@@ -1,6 +1,7 @@
 """
 Database models.
 """
+
 from django.contrib.auth.models import (
     AbstractBaseUser,
     BaseUserManager,
@@ -11,6 +12,8 @@ from django.db import models
 
 class UserManager(BaseUserManager):
     """Manager for users."""
+
+    use_in_migrations = True
 
     def create_user(self, email, password=None, **extra_fields):
         """Create, save and return a new user."""
@@ -36,6 +39,7 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     """User model in the system."""
 
+    passage_id = models.CharField(max_length=255, unique=True)
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
@@ -44,3 +48,4 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
